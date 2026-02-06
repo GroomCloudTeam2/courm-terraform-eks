@@ -19,3 +19,7 @@ output "availability_zone" {
   description = "실제로 배포된 가용영역"
   value       = aws_instance.jenkins.availability_zone
 }
+
+output "iam_role_arn" {
+  value = aws_iam_role.jenkins_ssm_role.arn
+}

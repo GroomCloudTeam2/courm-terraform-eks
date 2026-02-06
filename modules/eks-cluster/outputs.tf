@@ -30,3 +30,8 @@ output "lb_controller_role_arn" {
 output "node_group_arn" {
   value = module.eks.eks_managed_node_groups["worker_node"].node_group_arn
 }
+
+output "cluster_security_group_id" {
+  description = "Security group ID of the EKS cluster control plane"
+  value       = module.eks.cluster_security_group_id
+}

@@ -27,10 +27,15 @@ variable "subnet_ids" {
 variable "cluster_version" {
   description = "쿠버네티스 버전"
   type        = string
-  default     = "1.30" # 기본값 설정
+  default     = "1.31" # 기본값 설정
 }
 
 variable "node_group_name" {
   description = "EKS 워커 노드 그룹의 식별자"
   default     = "worker-node"
+}
+
+variable "jenkins_iam_role_arn" {
+  description = "IAM Role ARN of Jenkins"
+  type        = string
 }

@@ -23,7 +23,7 @@ module "eks" {
   # 인증 모드 설정: API와 ConfigMap을 병행 사용
   authentication_mode = "API_AND_CONFIG_MAP"
 
-  # [IAM 사용자 액세스 항목 설정
+  # IAM 사용자 액세스 항목 설정
   access_entries = {
     root = {
       principal_arn = "arn:aws:iam::900808296075:root"
@@ -57,6 +57,16 @@ module "eks" {
 
     goorm_infra = {
       principal_arn = "arn:aws:iam::900808296075:user/goorm-infra"
+      policy_associations = {
+        admin = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = { type = "cluster" }
+        }
+      }
+    }
+
+    jenkins = {
+      principal_arn = var.jenkins_iam_role_arn
       policy_associations = {
         admin = {
           policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
