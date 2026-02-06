@@ -35,6 +35,26 @@ module "eks" {
       }
     }
 
+    user = {
+      principal_arn = "arn:aws:iam::900808296075:user/user"
+      policy_associations = {
+        admin = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = { type = "cluster" }
+        }
+      }
+    }
+
+    courm-jjm = {
+      principal_arn = "arn:aws:iam::900808296075:user/courm-jjm"
+      policy_associations = {
+        admin = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = { type = "cluster" }
+        }
+      }
+    }
+
     goorm_infra = {
       principal_arn = "arn:aws:iam::900808296075:user/goorm-infra"
       policy_associations = {
