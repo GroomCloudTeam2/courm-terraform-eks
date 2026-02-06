@@ -115,7 +115,7 @@ module "eks" {
     # 5. CI-Build (Jenkins Agent)
     ci_build = {
       name           = "courm-ng-ci"
-      instance_types = ["t3.medium"]
+      instance_types = ["t3.large"]
       capacity_type  = "SPOT"
 
       min_size       = 1
