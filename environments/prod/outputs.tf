@@ -16,15 +16,15 @@ output "cluster_certificate_authority_data" {
 }
 
 output "lb_controller_role_arn" {
-  description = "AWS Load Balancer Controller용 IAM Role ARN"
-  value       = module.eks_cluster.lb_controller_role_arn
+  description = "IAM Role ARN for AWS Load Balancer Controller"
+  value       = module.lb_role.iam_role_arn
 }
 
 output "jenkins_url" {
   description = "젠킨스 접속 URL"
   value       = "http://${module.jenkins.public_ip}:8080"
 }
-
+/*
 output "rds_endpoints" {
   description = "DB 접속 주소"
   value = {
@@ -37,3 +37,4 @@ output "redis_endpoint" {
   description = "Redis 엔드포인트"
   value       = module.elasticache_redis.primary_endpoint
 }
+*/
