@@ -43,6 +43,3 @@ variable "jenkins_ami_id" { type = string }
 variable "jenkins_instance_type" { type = string }
 variable "key_pair_name" { type = string }
 
-# --- Kafka ---
-variable "kafka_ami_id" { type = string }
-variable "kafka_instance_type" { type = string }

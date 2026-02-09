@@ -20,10 +20,6 @@ key_pair_name = "courm-prod-key"
 jenkins_ami_id        = "ami-010be25c3775061c9" # Ubuntu 22.04
 jenkins_instance_type = "t3.medium"
 
-# --- Kafka ---
-kafka_ami_id        = "ami-010be25c3775061c9" # Ubuntu 22.04
-kafka_instance_type = "t3.medium"
-
 # --- Database ---
 db_username = "courmadmin"
 db_password = "courmadmin1234!"
