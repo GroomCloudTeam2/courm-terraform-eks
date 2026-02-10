@@ -88,6 +88,17 @@ module "eks" {
         }
       }
     }
+    jenkins_ssm_role = {
+      principal_arn = "arn:aws:iam::900808296075:role/courm-jenkins-prod-ssm-role"
+      username      = "jenkins-master"
+
+      policy_associations = {
+        admin = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = { type = "cluster" }
+        }
+      }
+    }
   }
 
   # ----------------------------------------------------------------------------
@@ -101,9 +112,9 @@ module "eks" {
       use_name_prefix = false
       subnet_ids      = var.subnet_ids # AZ a, c
 
-      min_size     = 2
-      max_size     = 4
-      desired_size = 2
+      min_size     = 1
+      max_size     = 3
+      desired_size = 1
 
       instance_types = ["t3.medium"]
       capacity_type  = "ON_DEMAND"
@@ -121,9 +132,9 @@ module "eks" {
       use_name_prefix = false
       subnet_ids      = var.subnet_ids # AZ a, c
 
-      min_size     = 2
-      max_size     = 6
-      desired_size = 2
+      min_size     = 1
+      max_size     = 2
+      desired_size = 1
 
       instance_types = ["t3.large"]
       capacity_type  = "ON_DEMAND"
@@ -142,7 +153,7 @@ module "eks" {
       subnet_ids      = var.subnet_ids # AZ a, c
 
       min_size     = 3
-      max_size     = 6
+      max_size     = 4
       desired_size = 3
 
       instance_types = ["t3.medium"]
