@@ -35,13 +35,6 @@ output "oidc_provider_arn" {
   value       = module.eks.oidc_provider_arn
 }
 
-/* AWS Load Balancer Controller에 부여할 IAM Role ARN (Helm 차트 설치 시 사용)
-output "lb_controller_role_arn" {
-  description = "IAM Role ARN for AWS Load Balancer Controller"
-  value       = module.lb_role.iam_role_arn
-}
-*/
-
 # ==============================================================================
 # Karpenter Outputs (for courm-bootstrap configuration)
 # ==============================================================================

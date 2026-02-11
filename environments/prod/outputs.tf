@@ -15,12 +15,10 @@ output "cluster_certificate_authority_data" {
   value       = module.eks_cluster.cluster_certificate_authority_data
 }
 
-/*
-output "lb_controller_role_arn" {
-  description = "IAM Role ARN for AWS Load Balancer Controller"
+output "lbc_iam_role_arn" {
+  description = "AWS Load Balancer Controller IAM Role ARN"
   value       = module.lb_role.iam_role_arn
 }
-*/
 
 output "jenkins_url" {
   description = "젠킨스 접속 URL"
