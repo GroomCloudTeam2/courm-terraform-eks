@@ -57,17 +57,17 @@ module "eks" {
         }
       }
     }
-    /*
+
     # IAM User: courm-jjm
     courm_jjm = {
-      principal_arn = "arn:aws:iam::${local.account_id}:user/courm-jjm"
+      principal_arn = "arn:aws:iam::900808296075:user/courm-jjm"
       policy_associations = {
         admin = {
           policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
           access_scope = { type = "cluster" }
         }
       }
-    }*/
+    }
     # IAM User: goorm-infra
     goorm_infra = {
       principal_arn = "arn:aws:iam::${local.account_id}:user/goorm-infra"
@@ -78,20 +78,10 @@ module "eks" {
         }
       }
     }
-    # IAM Role: Jenkins
-    jenkins = {
-      principal_arn = var.jenkins_iam_role_arn
-      policy_associations = {
-        admin = {
-          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-          access_scope = { type = "cluster" }
-        }
-      }
-    }
-    jenkins_ssm_role = {
-      principal_arn = "arn:aws:iam::900808296075:role/courm-jenkins-prod-ssm-role"
-      username      = "jenkins-master"
 
+    # IAM Role: Jenkins
+    jenkins_role = {
+      principal_arn = var.jenkins_iam_role_arn
       policy_associations = {
         admin = {
           policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
